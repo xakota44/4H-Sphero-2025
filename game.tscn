@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2jujkwlgo0qx"]
+
+[ext_resource type="Script" path="res://GameController.gd" id="1_lokmh"]
+[ext_resource type="Texture2D" uid="uid://dd2e8i0mc7wv3" path="res://sprites/Greyscale Dino/Blocks/Classic Dino Block.png" id="2_gov86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hli07"]
+size = Vector2(691.5, 59)
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_lokmh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(348, 476.5)
+shape = SubResource("RectangleShape2D_hli07")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(0.75, 2.50003)
+scale = Vector2(2.69922, 0.234375)
+texture = ExtResource("2_gov86")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 135.0
+offset_right = 155.0
+offset_bottom = 186.0
+theme_override_font_sizes/font_size = 50

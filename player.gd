@@ -24,7 +24,7 @@ func _process(delta):
 	position += velocity * delta
 	
 func _physics_process(delta):
-	velocity.y += delta * GRAVITY #velocity.y = velocity.y + delta * GRAVITY
+	velocity.y += delta * GRAVITY
 	var motion = velocity * delta
 	move_and_collide(motion)
 	
