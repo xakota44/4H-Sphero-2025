@@ -1,21 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://6bs6okxsbt6b"]
+[gd_scene load_steps=6 format=3 uid="uid://6bs6okxsbt6b"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ge476"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wudoa"]
+[ext_resource type="Texture2D" uid="uid://b16d6iha6uaor" path="res://sprites/Goofy Dino/Dino/Goofy1.PNG" id="2_f8y2b"]
+[ext_resource type="Texture2D" uid="uid://bk1sl87wlhisq" path="res://sprites/Goofy Dino/Dino/Goofy2.PNG" id="3_ojo4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbc67"]
-size = Vector2(37, 28)
+size = Vector2(43.5, 58)
 
-[node name="Player" type="Area2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2j1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f8y2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ojo4n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(7, 4)
 script = ExtResource("1_ge476")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(17.25, 13.25)
-scale = Vector2(35.5, 27.5)
-texture = SubResource("PlaceholderTexture2D_wudoa")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17.5, 14)
+position = Vector2(47.25, 47)
 shape = SubResource("RectangleShape2D_jbc67")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(45, 43)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_j2j1j")
+animation = &"idle"
