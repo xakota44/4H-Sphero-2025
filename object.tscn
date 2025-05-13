@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdaldhlhygq6e"]
+
+[ext_resource type="Script" path="res://ObjectController.gd" id="1_cokjy"]
+[ext_resource type="Texture2D" uid="uid://jtp2v2u5kdnq" path="res://sprites/Goofy Dino/Dino/JumpCloud.png" id="1_q1tek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_citod"]
+size = Vector2(36.5, 32.5)
+
+[node name="object" type="Area2D"]
+script = ExtResource("1_cokjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(146.25, 88.25)
+shape = SubResource("RectangleShape2D_citod")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-0.25, -10.25)
+scale = Vector2(0.185547, 0.220703)
+texture = ExtResource("1_q1tek")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

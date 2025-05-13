@@ -1,6 +1,7 @@
 extends Node
 var timer
 var score: int = 0
+var objectTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,15 @@ func _ready():
 	timer.set_one_shot(false)
 	add_child(timer)
 	timer.start()
+	
+	objectTimer = Timer.new()
+	objectTimer.timeout.connect(self._object_on_timer_timeout)
+	objectTimer.set_wait_time(5) #time in seconds
+	objectTimer.set_one_shot(false)
+	add_child(objectTimer)
+	objectTimer.start()
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,3 +32,11 @@ func _process(delta):
 func _on_timer_timeout():
 	score += 1 #score = score + 10
 	$Label.set_text(str(score))
+func _object_on_timer_timeout():
+	var scene = load("res://object.tscn")
+	var object = scene.instantiate()
+	add_child(object)
+	
+func game_over():
+	print("Game_Over")
+	get_tree().quit()

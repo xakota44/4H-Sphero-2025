@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hli07"]
 size = Vector2(691.5, 59)
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" groups=["game"]]
 script = ExtResource("1_lokmh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
