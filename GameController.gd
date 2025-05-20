@@ -38,5 +38,5 @@ func _object_on_timer_timeout():
 	add_child(object)
 	
 func game_over():
-	print("Game_Over")
-	get_tree().quit()
+	Global.set_score(score)
+	get_tree().change_scene_to_file("res://game_over.tscn")
